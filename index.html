@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - FundWise</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="index.html">
+                FundWise
+            </a>
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="my-accounts.html">My Accounts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="virtual-account.html">Virtual Account</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-light text-success fw-semibold" href="login.html">
+                            Sign In
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h4 class="fw-bold mb-1">Good Morning, Alex</h4>
+        <p class="text-muted mb-0">Welcome to your banking dashboard</p>
+    </div>
+    <button class="btn btn-outline-success rounded-circle">
+        <span class="fw-bold">A</span>
+    </button>
+</div>
+
+<div class="card bg-success text-white rounded-4 shadow mb-4">
+    <div class="card-body p-4">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <p class="mb-2">Main Account</p>
+                <h2 class="fw-bold mb-1">PKR 1,000,000</h2>
+                <small>Available Balance</small>
+            </div>
+            <div class="text-end">
+                <span class="badge bg-light text-success">Active Account</span>
+                <p class="mt-3 mb-0 small">**** **** 4521</p>
+            </div>
+        </div>
+        <hr class="border-light" />
+        <div class="row text-center">
+            <div class="col-6">
+                <p class="mb-1 small">Allocated Funds</p>
+                <h5 class="fw-bold">PKR 600,000</h5>
+            </div>
+            <div class="col-6">
+                <p class="mb-1 small">Unallocated Funds</p>
+                <h5 class="fw-bold">PKR 400,000</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h5 class="fw-bold mb-3">Quick Actions</h5>
+
+<div class="row g-3 mb-4">
+    <div class="col-6 col-md-3">
+        <a href="#" class="text-decoration-none">
+            <div class="card text-center shadow-sm h-100">
+                <div class="card-body py-4">
+                    <h4 class="text-success">⇄</h4>
+                    <h6 class="fw-semibold text-dark">Transfer</h6>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-6 col-md-3">
+        <a href="#" class="text-decoration-none">
+            <div class="card text-center shadow-sm h-100">
+                <div class="card-body py-4">
+                    <h4 class="text-success">＋</h4>
+                    <h6 class="fw-semibold text-dark">Deposit</h6>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-6 col-md-3">
+        <a href="#" class="text-decoration-none">
+            <div class="card text-center shadow-sm h-100">
+                <div class="card-body py-4">
+                    <h4 class="text-success">▤</h4>
+                    <h6 class="fw-semibold text-dark">Payments</h6>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-6 col-md-3">
+        <a href="#" class="text-decoration-none">
+            <div class="card text-center shadow-sm h-100">
+                <div class="card-body py-4">
+                    <h4 class="text-success">◷</h4>
+                    <h6 class="fw-semibold text-dark">History</h6>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h5 class="fw-bold mb-1">My Budget Accounts</h5>
+        <p class="text-muted small mb-0">Manage your money across different budgets</p>
+    </div>
+    <a href="#" class="btn btn-outline-success btn-sm">+ Add Budget</a>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-md-4">
+        <a href="virtual-account.html" class="text-decoration-none">
+            <div class="card shadow-sm h-100 border-0">
+                <div class="card-body p-4">
+                    <div class="d-flex justify-content-between">
+                        <h6 class="text-dark fw-bold">Monthly Spending</h6>
+                        <span class="badge bg-success">Spending</span>
+                    </div>
+                    <h4 class="fw-bold text-success mt-3">PKR 100,000</h4>
+                    <p class="text-muted small mb-2">Available Budget</p>
+                    <div class="progress mb-2">
+                        <div class="progress-bar bg-success w-75"></div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <small class="text-muted">Budget allocated</small>
+                        <small class="text-success fw-semibold">View Details →</small>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-md-4">
+        <a href="virtual-account.html" class="text-decoration-none">
+            <div class="card shadow-sm h-100 border-0">
+                <div class="card-body p-4">
+                    <div class="d-flex justify-content-between">
+                        <h6 class="text-dark fw-bold">Hospital Savings</h6>
+                        <span class="badge bg-info">Savings</span>
+                    </div>
+                    <h4 class="fw-bold text-success mt-3">PKR 200,000</h4>
+                    <p class="text-muted small mb-2">Available Budget</p>
+                    <div class="progress mb-2">
+                        <div class="progress-bar bg-info w-100"></div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <small class="text-muted">Budget allocated</small>
+                        <small class="text-success fw-semibold">View Details →</small>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-md-4">
+        <a href="virtual-account.html" class="text-decoration-none">
+            <div class="card shadow-sm h-100 border-0">
+                <div class="card-body p-4">
+                    <div class="d-flex justify-content-between">
+                        <h6 class="text-dark fw-bold">House Mortgage</h6>
+                        <span class="badge bg-secondary">Mortgage</span>
+                    </div>
+                    <h4 class="fw-bold text-success mt-3">PKR 300,000</h4>
+                    <p class="text-muted small mb-2">Available Budget</p>
+                    <div class="progress mb-2">
+                        <div class="progress-bar bg-secondary w-75"></div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <small class="text-muted">Budget allocated</small>
+                        <small class="text-success fw-semibold">View Details →</small>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="fw-bold mb-0">Recent Transactions</h5>
+    <a href="#" class="text-success text-decoration-none fw-semibold">View All</a>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th class="p-3">Description</th>
+                    <th>Account</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="p-3">
+                        <strong>Grocery Shopping</strong>
+                        <br />
+                        <small class="text-muted">Payment</small>
+                    </td>
+                    <td>Monthly Spending</td>
+                    <td>10 Nov 2026</td>
+                    <td class="text-danger fw-semibold">- PKR 5,000</td>
+                    <td><span class="badge bg-success">Completed</span></td>
+                </tr>
+                <tr>
+                    <td class="p-3">
+                        <strong>Hospital Deposit</strong>
+                        <br />
+                        <small class="text-muted">Deposit</small>
+                    </td>
+                    <td>Hospital Savings</td>
+                    <td>09 Nov 2026</td>
+                    <td class="text-success fw-semibold">+ PKR 20,000</td>
+                    <td><span class="badge bg-success">Completed</span></td>
+                </tr>
+                <tr>
+                    <td class="p-3">
+                        <strong>Mortgage Payment</strong>
+                        <br />
+                        <small class="text-muted">Payment</small>
+                    </td>
+                    <td>House Mortgage</td>
+                    <td>08 Nov 2026</td>
+                    <td class="text-danger fw-semibold">- PKR 15,000</td>
+                    <td><span class="badge bg-success">Completed</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p class="mb-1 fw-semibold">FundWise</p>
+        <small>Virtual Banking and Budget Management System</small>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="assets/app.js"></script>
+</body>
+</html>
