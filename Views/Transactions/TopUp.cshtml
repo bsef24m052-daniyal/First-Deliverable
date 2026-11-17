@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Top Up";
+}
+
+<div class="form-card">
+    <h2>Mobile Top Up</h2>
+    <p class="text-muted">Demonstration page — no top-up will be processed.</p>
+
+    <label class="form-label">Mobile Number</label>
+    <input class="form-control mb-3" />
+
+    <label class="form-label">Network</label>
+    <select class="form-select mb-3">
+        <option>Jazz</option>
+        <option>Zong</option>
+        <option>Ufone</option>
+        <option>Telenor</option>
+    </select>
+
+    <label class="form-label">Amount</label>
+    <input type="number" class="form-control mb-3" />
+
+    <button class="btn btn-primary" type="button"
+            onclick="alert('Demonstration only. No top-up was processed.')">
+        Continue
+    </button>
+</div>

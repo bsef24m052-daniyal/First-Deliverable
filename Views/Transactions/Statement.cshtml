@@ -1,0 +1,56 @@
+@model StatementViewModel
+
+@{
+    ViewData["Title"] = "Statement";
+    var minis = ViewBag.MiniAccounts as List<MiniAccount>
+                ?? new List<MiniAccount>();
+}
+
+<h2 class="mb-4">Transaction Statement</h2>
+
+<div class="row g-3 mb-4">
+    <div class="col-md-6">
+        <label class="form-label">Account</label>
+
+        <select id="statementAccount" class="form-select">
+            <option value="">Main Account (All transactions)</option>
+
+            @foreach (var mini in minis)
+            {
+                <option value="@mini.Id"
+                        selected="@(Model.MiniAccountId == mini.Id)">
+                    @mini.Name
+                </option>
+            }
+        </select>
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Period</label>
+
+        <select id="statementPeriod" class="form-select">
+            <option value="week" selected="@(Model.Period == "week")">
+                Past Week
+            </option>
+            <option value="month" selected="@(Model.Period == "month")">
+                Past Month
+            </option>
+            <option value="year" selected="@(Model.Period == "year")">
+                Past Year
+            </option>
+            <option value="all" selected="@(Model.Period == "all")">
+                All Time
+            </option>
+        </select>
+    </div>
+</div>
+
+<div id="statementRows">
+    <partial name="_TransactionRows" model="Model.Transactions" />
+</div>
+
+@section Scripts {
+    <script>
+        window.loadStatementUrl = '@Url.Action("Filter", "Transactions")';
+    </script>
+}

@@ -1,0 +1,139 @@
+:root {
+    --mosque-teal: #027078;
+    --white: #FFFFFF;
+    --driftwood: #B2815B;
+    --light-background: #F6F8F9;
+    --dark-text: #263238;
+}
+
+body {
+    background: var(--light-background);
+    color: var(--dark-text);
+    font-family: Arial, sans-serif;
+}
+
+.brand-fund {
+    color: var(--mosque-teal);
+}
+
+.brand-wise {
+    color: var(--driftwood);
+}
+
+.bg-teal {
+    background-color: var(--mosque-teal) !important;
+}
+
+.text-teal {
+    color: var(--mosque-teal) !important;
+}
+
+.text-driftwood {
+    color: var(--driftwood) !important;
+}
+
+.btn-primary {
+    background-color: var(--mosque-teal);
+    border-color: var(--mosque-teal);
+}
+
+    .btn-primary:hover {
+        background-color: #015960;
+        border-color: #015960;
+    }
+
+.btn-outline-primary {
+    color: var(--mosque-teal);
+    border-color: var(--mosque-teal);
+}
+
+    .btn-outline-primary:hover {
+        background-color: var(--mosque-teal);
+        border-color: var(--mosque-teal);
+    }
+
+.auth-card,
+.form-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 30px;
+    max-width: 650px;
+    margin: 30px auto;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+.balance-card {
+    background: var(--mosque-teal);
+    color: var(--white);
+    padding: 28px;
+    border-radius: 16px;
+    height: 100%;
+}
+
+    .balance-card h2 {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+.account-card {
+    border: none;
+    border-radius: 14px;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+}
+
+    .account-card:hover {
+        transform: translateY(-3px);
+    }
+
+.action-link {
+    background: #F0F7F7;
+    color: var(--mosque-teal);
+    text-decoration: none;
+    border-radius: 10px;
+    min-height: 90px;
+    padding: 15px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+    .action-link i {
+        font-size: 1.5rem;
+    }
+
+    .action-link:hover {
+        background: var(--mosque-teal);
+        color: white;
+    }
+
+.progress {
+    height: 8px;
+    background: #E8EEEE;
+}
+
+.progress-bar {
+    background: var(--driftwood);
+}
+
+.bank-card {
+    max-width: 380px;
+    min-height: 210px;
+    background: linear-gradient(135deg, #027078, #01484D);
+    color: white;
+    border-radius: 16px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--mosque-teal);
+    box-shadow: 0 0 0 0.2rem rgba(2, 112, 120, 0.15);
+}
+
+footer {
+    margin-top: auto;
+}

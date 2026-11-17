@@ -1,0 +1,36 @@
+@model ProfileViewModel
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h2 class="mb-4">My Profile</h2>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Username</dt>
+            <dd class="col-sm-9">@Model.User?.UserName</dd>
+
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9">@Model.User?.Email</dd>
+
+            <dt class="col-sm-3">CNIC</dt>
+            <dd class="col-sm-9">@Model.User?.CNIC</dd>
+
+            <dt class="col-sm-3">Mobile</dt>
+            <dd class="col-sm-9">@Model.User?.MobileNumber</dd>
+
+            <dt class="col-sm-3">Date of Birth</dt>
+            <dd class="col-sm-9">@Model.User?.DateOfBirth.ToString("dd MMM yyyy")</dd>
+
+            <dt class="col-sm-3">Account Number</dt>
+            <dd class="col-sm-9">@Model.User?.AccountNumber</dd>
+
+            <dt class="col-sm-3">Main Balance</dt>
+            <dd class="col-sm-9">
+                PKR @Model.MainAccount?.Balance.ToString("N2")
+            </dd>
+        </dl>
+    </div>
+</div>

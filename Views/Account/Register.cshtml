@@ -1,0 +1,97 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="auth-card">
+    <h2 class="text-center mb-2">Create your account</h2>
+    <p class="text-muted text-center mb-4">
+        Register for FundWise banking
+    </p>
+
+    <form asp-action="Register" method="post">
+        @Html.AntiForgeryToken()
+
+        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="CNIC" class="form-label"></label>
+                <input asp-for="CNIC" class="form-control" />
+                <span asp-validation-for="CNIC" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label asp-for="AccountNumber" class="form-label"></label>
+                <input asp-for="AccountNumber" class="form-control" />
+                <span asp-validation-for="AccountNumber" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label asp-for="MobileNumber" class="form-label"></label>
+                <input asp-for="MobileNumber" class="form-control" />
+                <span asp-validation-for="MobileNumber" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label asp-for="DateOfBirth" class="form-label"></label>
+                <input asp-for="DateOfBirth" type="date" class="form-control" />
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label asp-for="Username" class="form-label"></label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label asp-for="ConfirmPassword" class="form-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <div class="col-12 mb-3">
+                <label asp-for="SecurityQuestion" class="form-label"></label>
+                <select asp-for="SecurityQuestion" class="form-select">
+                    <option value="">Choose a security question</option>
+                    <option>What was the name of your first school?</option>
+                    <option>What is your favourite colour?</option>
+                    <option>What city were you born in?</option>
+                    <option>What was your childhood nickname?</option>
+                </select>
+                <span asp-validation-for="SecurityQuestion" class="text-danger"></span>
+            </div>
+
+            <div class="col-12 mb-3">
+                <label asp-for="SecurityAnswer" class="form-label"></label>
+                <input asp-for="SecurityAnswer" class="form-control" />
+                <span asp-validation-for="SecurityAnswer" class="text-danger"></span>
+            </div>
+        </div>
+
+        <button class="btn btn-primary w-100">Create Account</button>
+    </form>
+
+    <p class="text-center mt-3">
+        Already registered?
+        <a asp-action="Login">Login</a>
+    </p>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

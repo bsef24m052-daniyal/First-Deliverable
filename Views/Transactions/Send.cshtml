@@ -1,0 +1,52 @@
+@{
+    ViewData["Title"] = "Send Money";
+    var minis = ViewBag.MiniAccounts as List<MiniAccount>
+                ?? new List<MiniAccount>();
+}
+
+<div class="form-card">
+    <h2>Send Money</h2>
+
+    <p class="text-muted">
+        Select the account from which you want to send money.
+    </p>
+
+    <form id="sendForm" asp-action="Send" method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="mb-3">
+            <label class="form-label">Send From</label>
+
+            <select name="miniAccountId" class="form-select">
+                <option value="">Main Account</option>
+
+                @foreach (var mini in minis)
+                {
+                    <option value="@mini.Id"
+                            selected="@(ViewBag.SelectedMiniAccountId != null &&
+                                        (int)ViewBag.SelectedMiniAccountId == mini.Id)">
+                        @mini.Name
+                    </option>
+                }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Recipient Details</label>
+            <input name="recipient" class="form-control"
+                   required maxlength="200" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Amount (PKR)</label>
+            <input name="amount" type="number" min="0.01"
+                   step="0.01" class="form-control" required />
+        </div>
+
+        <input type="hidden" name="confirmOverspending" value="false" />
+
+        <button class="btn btn-primary w-100">Send Money</button>
+
+        <div id="sendMessage" class="mt-3"></div>
+    </form>
+</div>

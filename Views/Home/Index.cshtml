@@ -1,0 +1,196 @@
+@model DashboardViewModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+
+    var balance = Model.MainAccount?.Balance ?? 0m;
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2>Good day, @Model.User?.UserName</h2>
+        <p class="text-muted mb-0">Welcome to your financial dashboard.</p>
+    </div>
+
+    <a asp-action="Profile" class="btn btn-outline-primary">
+        <i class="bi bi-person"></i> Profile
+    </a>
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-lg-7">
+        <div class="balance-card">
+            <p class="mb-1">Main Account Balance</p>
+
+            <h2>
+                PKR <span id="balanceValue">@balance.ToString("N2")</span>
+            </h2>
+
+            <button class="btn btn-light btn-sm" id="toggleBalance"
+                    type="button">
+                <i class="bi bi-eye-slash"></i> Hide balance
+            </button>
+
+            <hr />
+
+            <p class="mb-1">
+                Account Number: @Model.MainAccount?.AccountNumber
+            </p>
+
+            <p class="mb-0">
+                Unallocated Balance:
+                PKR @Model.UnallocatedBalance.ToString("N2")
+            </p>
+
+            <a asp-controller="Transactions" asp-action="Statement"
+               class="btn btn-light mt-3">
+                View Statement
+            </a>
+        </div>
+    </div>
+
+    <div class="col-lg-5">
+        <div class="card h-100 p-3">
+            <h5>Quick Actions</h5>
+
+            <div class="row g-2 mt-2">
+                <div class="col-6">
+                    <a class="action-link" asp-controller="Transactions"
+                       asp-action="Send">
+                        <i class="bi bi-send"></i>
+                        Send Money
+                    </a>
+                </div>
+
+                <div class="col-6">
+                    <a class="action-link" asp-controller="Transactions"
+                       asp-action="Receive">
+                        <i class="bi bi-download"></i>
+                        Receive Money
+                    </a>
+                </div>
+
+                <div class="col-6">
+                    <a class="action-link" asp-controller="Transactions"
+                       asp-action="PayBill">
+                        <i class="bi bi-receipt"></i>
+                        Pay Bill
+                    </a>
+                </div>
+
+                <div class="col-6">
+                    <a class="action-link" asp-controller="Transactions"
+                       asp-action="TopUp">
+                        <i class="bi bi-phone"></i>
+                        Top Up
+                    </a>
+                </div>
+
+                <div class="col-6">
+                    <a class="action-link" asp-controller="Transactions"
+                       asp-action="Payments">
+                        <i class="bi bi-credit-card"></i>
+                        Payments
+                    </a>
+                </div>
+
+                <div class="col-6">
+                    <a class="action-link" asp-controller="Transactions"
+                       asp-action="Cards">
+                        <i class="bi bi-wallet2"></i>
+                        Cards
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h4>My Mini Accounts</h4>
+
+    <a asp-controller="Accounts" asp-action="Index"
+       class="btn btn-outline-primary btn-sm">
+        Manage Accounts
+    </a>
+</div>
+
+<div class="row g-3 mb-4">
+    @foreach (var mini in Model.MiniAccounts)
+    {
+        var percentage = mini.AssignedBudget > 0
+            ? (double)(mini.TotalSpent / mini.AssignedBudget * 100)
+            : 0;
+
+        <div class="col-md-4">
+            <div class="card account-card h-100">
+                <div class="card-body">
+                    <span class="badge bg-teal">@mini.Tag</span>
+
+                    <h5 class="mt-2">@mini.Name</h5>
+
+                    <p class="text-muted">@mini.Description</p>
+
+                    <p>Assigned: PKR @mini.AssignedBudget.ToString("N2")</p>
+
+                    <p>Spent: PKR @mini.TotalSpent.ToString("N2")</p>
+
+                    <p class="@(mini.RemainingBalance < 0 ? "text-danger" : "text-success")">
+                        Remaining: PKR @mini.RemainingBalance.ToString("N2")
+                    </p>
+
+                    <div class="progress mb-3">
+                        <div class="progress-bar"
+                             style="width:@Math.Clamp(percentage, 0, 100)%">
+                        </div>
+                    </div>
+
+                    <a asp-controller="Accounts"
+                       asp-action="Details"
+                       asp-route-id="@mini.Id"
+                       class="btn btn-outline-primary btn-sm">
+                        View Account
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<h4>Recent Transactions</h4>
+
+@if (Model.RecentTransactions.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Account</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th class="text-end">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var tx in Model.RecentTransactions)
+                {
+                    <tr>
+                        <td>@tx.CreatedAt.ToLocalTime().ToString("g")</td>
+                        <td>@tx.AccountLabel</td>
+                        <td>@tx.Type</td>
+                        <td>@tx.Description</td>
+                        <td class="text-end @(tx.Type == TransactionType.ReceiveMoney ? "text-success" : "text-danger")">
+                            @(tx.Type == TransactionType.ReceiveMoney ? "+" : "-")
+                            PKR @tx.Amount.ToString("N2")
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <p class="text-muted">No recent transactions.</p>
+}

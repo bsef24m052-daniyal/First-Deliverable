@@ -1,0 +1,68 @@
+﻿@model MiniAccount
+
+@{
+    ViewData["Title"] = Model.Name;
+    var transactions = ViewBag.Transactions as List<Transaction>
+                       ?? new List<Transaction>();
+}
+
+<div class="card p-4 mb-4">
+    <span class="badge bg-teal align-self-start">@Model.Tag</span>
+
+    <h2 class="mt-2">@Model.Name</h2>
+
+    <p class="text-muted">@Model.Description</p>
+
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <p class="text-muted mb-1">Assigned Budget</p>
+            <h5>PKR @Model.AssignedBudget.ToString("N2")</h5>
+        </div>
+
+        <div class="col-md-4">
+            <p class="text-muted mb-1">Total Spent</p>
+            <h5>PKR @Model.TotalSpent.ToString("N2")</h5>
+        </div>
+
+        <div class="col-md-4">
+            <p class="text-muted mb-1">Remaining</p>
+            <h5 class="@(Model.RemainingBalance < 0 ? "text-danger" : "text-success")">
+                PKR @Model.RemainingBalance.ToString("N2")
+            </h5>
+        </div>
+    </div>
+
+    <a asp-controller="Transactions"
+       asp-action="Send"
+       asp-route-miniAccountId="@Model.Id"
+       class="btn btn-primary align-self-start mt-3">
+        Send from this account
+    </a>
+</div>
+
+<h4>Mini Account Transactions</h4>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th class="text-end">Amount</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var tx in transactions)
+        {
+            <tr>
+                <td>@tx.CreatedAt.ToLocalTime().ToString("g")</td>
+                <td>@tx.Type</td>
+                <td>@tx.Description</td>
+                <td class="text-end text-danger">
+                    - PKR @tx.Amount.ToString("N2")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

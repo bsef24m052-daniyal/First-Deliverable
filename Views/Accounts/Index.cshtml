@@ -1,0 +1,48 @@
+﻿@model List<FundWise.Models.MiniAccount>
+
+@{
+    ViewData["Title"] = "My Accounts";
+}
+
+<div class="container mt-4">
+    <h2>My Accounts</h2>
+
+    <a asp-controller="Accounts"
+       asp-action="Create"
+       class="btn btn-primary mb-3">
+        Create Mini Account
+    </a>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info">
+            You haven't created any mini accounts yet.
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var account in Model)
+            {
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5>@account.Name</h5>
+                            <p>@account.Description</p>
+                            <p>Budget: PKR @account.AssignedBudget</p>
+                            <p>Spent: PKR @account.TotalSpent</p>
+                            <p>Remaining: PKR @account.RemainingBalance</p>
+
+                            <a asp-controller="Accounts"
+                               asp-action="Details"
+                               asp-route-id="@account.Id"
+                               class="btn btn-outline-primary">
+                                View Account
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

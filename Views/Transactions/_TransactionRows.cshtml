@@ -1,0 +1,42 @@
+@model IEnumerable<Transaction>
+
+@if (!Model.Any())
+{
+    <p class="text-muted">No transactions found for this period.</p>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Account</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th class="text-end">Amount (PKR)</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var tx in Model)
+                {
+                    var received =
+                        tx.Type == TransactionType.ReceiveMoney;
+
+                    <tr>
+                        <td>@tx.CreatedAt.ToLocalTime().ToString("g")</td>
+                        <td>@tx.AccountLabel</td>
+                        <td>@tx.Type</td>
+                        <td>@tx.Description</td>
+
+                        <td class="text-end @(received ? "text-success" : "text-danger")">
+                            @(received ? "+" : "-")
+                            @tx.Amount.ToString("N2")
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
