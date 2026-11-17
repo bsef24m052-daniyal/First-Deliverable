@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Accounts - FundWise</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="index.html">
+                FundWise
+            </a>
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="my-accounts.html">My Accounts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="virtual-account.html">Virtual Account</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-light text-success fw-semibold" href="login.html">
+                            Sign In
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h4 class="fw-bold mb-1">My Accounts</h4>
+        <p class="text-muted mb-0">Manage all your virtual budget accounts in one place.</p>
+    </div>
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createAccountModal">
+        + Create Account
+    </button>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+                <p class="text-muted mb-2">Total Main Balance</p>
+                <h4 class="fw-bold text-success">PKR 1,000,000</h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+                <p class="text-muted mb-2">Total Allocated</p>
+                <h4 class="fw-bold text-primary">PKR 600,000</h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+                <p class="text-muted mb-2">Unallocated Balance</p>
+                <h4 class="fw-bold text-success">PKR 400,000</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h5 class="fw-bold mb-1">Virtual Budget Accounts</h5>
+        <p class="text-muted small mb-0">You currently have 3 virtual accounts.</p>
+    </div>
+    <span class="badge bg-success fs-6" data-account-type-badge>3 Accounts</span>
+</div>
+
+<div class="row g-3 mb-5">
+    <div class="col-lg-4 col-md-6">
+        <div class="card shadow-sm border-0 h-100">
+            <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="badge bg-success">Spending</span>
+                    <div class="dropdown">
+                        <button class="btn btn-light btn-sm" data-bs-toggle="dropdown">⋮</button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editMonthlyModal">
+                                    Edit Account
+                                </button>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="virtual-account.html">View Details</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h5 class="fw-bold">Monthly Spending</h5>
+                <h3 class="fw-bold text-success mt-3">PKR 100,000</h3>
+                <p class="text-muted small mb-2">Allocated Balance</p>
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-success w-75"></div>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <small class="text-muted">Spent</small>
+                    <strong>PKR 30,000</strong>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <small class="text-muted">Remaining</small>
+                    <strong class="text-success">PKR 70,000</strong>
+                </div>
+                <a href="virtual-account.html" class="btn btn-outline-success w-100">View Account</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+        <div class="card shadow-sm border-0 h-100">
+            <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="badge bg-info">Savings</span>
+                    <div class="dropdown">
+                        <button class="btn btn-light btn-sm" data-bs-toggle="dropdown">⋮</button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editHospitalModal">
+                                    Edit Account
+                                </button>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="virtual-account.html">View Details</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h5 class="fw-bold">Hospital Savings</h5>
+                <h3 class="fw-bold text-success mt-3">PKR 200,000</h3>
+                <p class="text-muted small mb-2">Allocated Balance</p>
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-info w-100"></div>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <small class="text-muted">Spent</small>
+                    <strong>PKR 0</strong>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <small class="text-muted">Remaining</small>
+                    <strong class="text-success">PKR 200,000</strong>
+                </div>
+                <a href="virtual-account.html" class="btn btn-outline-success w-100">View Account</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+        <div class="card shadow-sm border-0 h-100">
+            <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="badge bg-secondary">Mortgage</span>
+                    <div class="dropdown">
+                        <button class="btn btn-light btn-sm" data-bs-toggle="dropdown">⋮</button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editMortgageModal">
+                                    Edit Account
+                                </button>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="virtual-account.html">View Details</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h5 class="fw-bold">House Mortgage</h5>
+                <h3 class="fw-bold text-success mt-3">PKR 300,000</h3>
+                <p class="text-muted small mb-2">Allocated Balance</p>
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-secondary w-75"></div>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <small class="text-muted">Spent</small>
+                    <strong>PKR 50,000</strong>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <small class="text-muted">Remaining</small>
+                    <strong class="text-success">PKR 250,000</strong>
+                </div>
+                <a href="virtual-account.html" class="btn btn-outline-success w-100">View Account</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="createAccountModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">Create Virtual Account</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Account Name</label>
+                        <input type="text" class="form-control" placeholder="Enter account name" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Account Type</label>
+                        <select class="form-select">
+                            <option selected disabled>Select account type</option>
+                            <option>Spending</option>
+                            <option>Savings</option>
+                            <option>Mortgage</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Allocate Amount (PKR)</label>
+                        <input type="number" class="form-control" placeholder="Enter amount" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" rows="3" placeholder="Enter account description"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success">Create Account</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editMonthlyModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">Edit Virtual Account</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Account Name</label>
+                        <input type="text" class="form-control" value="Monthly Spending" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Account Type</label>
+                        <select class="form-select">
+                            <option selected>Spending</option>
+                            <option>Savings</option>
+                            <option>Mortgage</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Allocated Amount (PKR)</label>
+                        <input type="number" class="form-control" value="100000" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editHospitalModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">Edit Virtual Account</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Account Name</label>
+                        <input type="text" class="form-control" value="Hospital Savings" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Account Type</label>
+                        <select class="form-select">
+                            <option>Spending</option>
+                            <option selected>Savings</option>
+                            <option>Mortgage</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Allocated Amount (PKR)</label>
+                        <input type="number" class="form-control" value="200000" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editMortgageModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">Edit Virtual Account</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Account Name</label>
+                        <input type="text" class="form-control" value="House Mortgage" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Account Type</label>
+                        <select class="form-select">
+                            <option>Spending</option>
+                            <option>Savings</option>
+                            <option selected>Mortgage</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Allocated Amount (PKR)</label>
+                        <input type="number" class="form-control" value="300000" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p class="mb-1 fw-semibold">FundWise</p>
+        <small>Virtual Banking and Budget Management System</small>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="assets/app.js"></script>
+</body>
+</html>
